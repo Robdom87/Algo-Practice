@@ -26,3 +26,6 @@ var arrayIntersection = function(arr1, arr2) {
 
   return result;
 };
+
+//can always create number map and influence its numbers after to work on it
+//very good example, and most optimal
