@@ -3,4 +3,18 @@
 // Return the common number
 // You may not use the `indexOf` or `includes` method
 
-var commonElement = function(arrA, arrB) {};
+var commonElement = function (arrA, arrB) {
+    let numMap = {};
+    for (let i = 0; i < arrA.length; i++) {
+        if (numMap[arrA[i]]) {
+            numMap[arrA[i]] += 1;
+        } else {
+            numMap[arrA[i]] = 1;
+        }
+    }
+    for (let e = 0; e < arrB.length; e++){
+        if (numMap[arrB[e]]) {
+            return arrB[e];
+        }
+    }
+};
