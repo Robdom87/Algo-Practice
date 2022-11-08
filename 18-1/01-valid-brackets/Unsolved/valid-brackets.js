@@ -17,30 +17,24 @@ const validBrackets = function (str) {
         '(': ')'
     };
     let arr = str.split('');
-    let current = '';
     let queue = [];
     for (let bracket of arr) {
         if (ending.includes(bracket)) {
-            if (relationObj[current] === bracket) {
-                current = '';
-            } else {
+            let queueStart = queue.pop();
+            if (relationObj[queueStart] !== bracket) {
                 return false;
-            }            
-            if (queue.length > 0) {
-                current = queue.pop();
             }
         } else if (starting.includes(bracket)) {
-            if (current !== "") {
-                queue.push(current);
-            }
-            current = bracket;
+            queue.push(bracket);
         }
     }
-    if (current !== "") {
+    if (queue.length) {
         return false;
     }
     return true;
 };
+
+//didnt need current if already tracking with array
 
 console.log(validBrackets(str1), 'true');
 // console.log(validBrackets(str2),'true');
