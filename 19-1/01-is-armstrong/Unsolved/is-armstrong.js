@@ -6,11 +6,8 @@
 // TODO: Complete the function below:
 
 var isArmstrong = function(num) {
-    let number = `${num}`.split('');
+    let number = String(num).split('');
     let armstrong = number.reduce((total,digit)=>total+=Math.pow(digit,number.length),
     0);
-    if (armstrong === num){
-        return true;
-    }
-    return false;
+    return armstrong === num;
 };
